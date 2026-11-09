@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Ayat! 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff0f5;--bg2:#ffdbe8;--card:#ffffff;--ink:#4a1d33;--soft:#8a5a70;--pink:#e83e7e;--shadow:0 8px 24px rgba(232,62,126,.22);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1020;--bg2:#3a1630;--card:#44203a;--ink:#ffe8f1;--soft:#e0b3c7;--pink:#ff6fa3;--shadow:0 8px 24px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#2a1020;--bg2:#3a1630;--card:#44203a;--ink:#ffe8f1;--soft:#e0b3c7;--pink:#ff6fa3;--shadow:0 8px 24px rgba(0,0,0,.45)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Nunito',system-ui,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2)) fixed;color:var(--ink);line-height:1.55;overflow-x:hidden;text-align:center}
+h1,h2{font-family:'Pacifico',cursive,serif;font-weight:400;line-height:1.25;color:var(--pink)}
+h1{font-size:clamp(2.2rem,10vw,3.6rem);margin:.3em 0}
+h2{font-size:1.7rem;margin:.1em 0 .5em}
+h3{margin:.3em 0 .8em}
+p{margin:.5em 0}
+.card{background:var(--card);border-radius:26px;padding:24px 18px;margin:24px auto;width:calc(100% - 28px);max-width:640px;box-shadow:var(--shadow)}
+.rev{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.rev.in{opacity:1;transform:none}
+.btn{font:inherit;font-weight:800;border:0;border-radius:999px;padding:12px 22px;margin:6px;background:var(--pink);color:#fff;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .2s}
+.btn:active{transform:translateY(2px)}
+.btn.alt{background:var(--bg2);color:var(--ink)}
+.btn:disabled{opacity:.55}
+#quiz .alt{display:block;width:calc(100% - 12px)}
+.soft{color:var(--soft);font-size:.9rem}
+#gate{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,var(--bg),var(--bg2))}
+.gift{font-size:6.5rem;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(7deg)}}
+#main{display:none}
+#hp{width:200px;height:200px;border-radius:50%;margin:14px auto;border:6px solid var(--pink);background:var(--bg2) center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:3.4rem;cursor:pointer;box-shadow:var(--shadow)}
+#hp small{font-size:.75rem;font-family:inherit;padding:0 14px;color:var(--soft)}
+.tick{overflow:hidden;background:var(--pink);color:#fff;font-weight:800;padding:8px 0;margin:18px 0;white-space:nowrap}
+.tk{display:inline-block;animation:tk 28s linear infinite}
+@keyframes tk{to{transform:translateX(-50%)}}
+#no{transition:transform .25s}
+.gifts{display:flex;justify-content:center;gap:10px}
+.gb{font-size:4rem;background:none;border:0;cursor:pointer;animation:bob 2s ease-in-out infinite}
+.gb:nth-child(2){animation-delay:.3s}.gb:nth-child(3){animation-delay:.6s}
+.cakebox{position:relative;padding-top:10px}
+#candles{display:flex;justify-content:center;gap:14px;height:78px;align-items:flex-end}
+.cn{background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.cn b{display:block;width:9px;height:34px;border-radius:3px;background:repeating-linear-gradient(45deg,#ff7aa8 0 6px,#fff 6px 12px)}
+.fl{font-style:normal;font-size:1.7rem;animation:fl .5s ease-in-out infinite alternate}
+@keyframes fl{to{transform:scale(1.15) rotate(-6deg)}}
+.cake{font-size:6rem;line-height:1;margin-top:-6px}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:14px}
+.ph{position:relative;aspect-ratio:1;border-radius:16px;background:center/cover;cursor:pointer;box-shadow:var(--shadow)}
+.x{position:absolute;top:4px;right:4px;border:0;border-radius:50%;width:26px;height:26px;background:rgba(0,0,0,.55);color:#fff;cursor:pointer}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:16px}
+#lb img{max-width:100%;max-height:100%;border-radius:12px}
+#msg{white-space:pre-line;text-align:left;font-size:1.05rem;padding:14px;border-radius:14px;border:2px dashed var(--pink)}
+#msg[contenteditable=true]{outline:2px solid var(--pink);background:var(--bg)}
+.fall{position:fixed;top:-50px;z-index:80;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(380deg)}}
+.garden{font-size:2.2rem;display:flex;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.garden span{display:inline-block;transform-origin:bottom;animation:sway 2.4s ease-in-out infinite alternate}
+.garden span:nth-child(odd){animation-delay:.6s}
+@keyframes sway{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+.danger{background:#d62828}
+.big{font-size:2.1rem}
+@media (prefers-reduced-motion:reduce){.gift,.gb,.tk,.fl,.garden span{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gift">🎁</div>
+  <h1>Hello, Ayat!</h1>
+  <p>Something special is waiting inside…</p>
+  <button class="btn" id="open">Tap to open 🎀</button>
+</div>
+
+<div id="main">
+
+  <section class="card rev" style="margin-top:28px">
+    <p class="soft">✨ A very important announcement ✨</p>
+    <h1>Happy Birthday, Ayat!</h1>
+    <div id="hp"></div>
+    <p>Today the most important person in the world is celebrating.<br>(That’s you. Obviously.)</p>
+    <input type="file" id="fi" accept="image/*" multiple hidden>
+  </section>
+
+  <div class="tick rev"><div class="tk" id="tk"></div></div>
+
+  <section class="card rev">
+    <h2>Security Check 🔒</h2>
+    <p>Before we continue, please prove you are Ayat.</p>
+    <button class="btn" id="yes">I am Ayat 😎</button>
+    <button class="btn alt" id="no">I am NOT Ayat</button>
+    <p id="vmsg"></p>
+  </section>
+
+  <section class="card rev">
+    <h2>The Birthday Exam 📝</h2>
+    <div id="quiz"></div>
+  </section>
+
+  <section class="card rev">
+    <h2>Pick a Gift 🎁</h2>
+    <p class="soft">Choose one. Choose wisely. (Or randomly. Nobody is judging.)</p>
+    <div class="gifts" id="gifts"></div>
+    <p id="gmsg" style="min-height:3.4em;font-weight:700"></p>
+  </section>
+
+  <section class="card rev">
+    <h2>Blow the Candles 🕯️</h2>
+    <p class="soft">Tap each flame to blow it out.</p>
+    <div class="cakebox"><div id="candles"></div><div class="cake">🎂</div></div>
+    <p id="cmsg" style="min-height:2em;font-weight:700"></p>
+  </section>
+
+  <section class="card rev">
+    <h2>Memories of Ayat 📸</h2>
+    <button class="btn" id="add">＋ Add photos</button>
+    <p id="note" class="soft"></p>
+    <p id="empty" class="soft">No photos yet. Tap “Add photos” and choose pictures from your phone or computer.</p>
+    <div id="grid"></div>
+  </section>
+
+  <section class="card rev">
+    <h2>A Little Letter 💌</h2>
+    <div id="msg">Dear Ayat,
+
+Happy Birthday! Thank you for making every day brighter, funnier and a little bit louder.
+
+May this year bring you happiness, good health, big dreams and even bigger cake. Study hard, laugh harder, and always remember: you are loved more than Wi-Fi.
+
+With love,
+Mazhar</div>
+    <button class="btn alt" id="edit">✏️ Edit message</button>
+  </section>
+
+  <section class="card rev" id="fin" style="margin-bottom:60px">
+    <h2>The End 🎬</h2>
+    <p>That’s all. Nothing else here. Really.<br>Please do not press the button below.</p>
+    <button class="btn danger" id="dont">⚠️ Do NOT press</button>
+    <div id="fmsg" hidden>
+      <h2 class="big">I told you not to… 😂</h2>
+      <p>Okay, since you pressed it:<br><b>Happy Birthday, Ayat! 💖</b><br>May your life bloom with happiness, like a garden full of flowers.</p>
+      <button class="btn alt" id="again">More flowers 🌸</button>
+    </div>
+    <div class="garden" id="garden"></div>
+  </section>
+
+</div>
+
+<div id="lb"><img id="lbi" alt="Ayat"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CONF=['🎉','🎊','✨','🎈','⭐','💖'];
+const LOVE=['💖','💕','💗','🌸','🌷','🌹','🌼','🌺','🌻','💐','💞'];
+
+function rain(a,n,spread){
+  spread=spread||2.5;if(RM)n=Math.min(n,10);
+  for(let i=0;i<n;i++){
+    const s=document.createElement('span');s.className='fall';
+    s.textContent=a[Math.random()*a.length|0];
+    s.style.cssText='left:'+Math.random()*100+'vw;font-size:'+(18+Math.random()*24)+'px;animation-duration:'+(3+Math.random()*4)+'s;animation-delay:'+Math.random()*spread+'s';
+    s.onanimationend=()=>s.remove();document.body.appendChild(s);
+  }
+}
+function bloom(){rain(LOVE,80,6);let k=0;const t=setInterval(()=>{rain(LOVE,45,3);if(++k>4)clearInterval(t)},3000)}
+
+/* Opening */
+$('#tk').textContent=('📰 BREAKING NEWS: Ayat gets one year older and 100% more awesome • Local cake reported to be nervous • Experts confirm: today Ayat’s decisions are final • Weather: sunny with a 100% chance of smiles • ').repeat(2);
+$('#open').onclick=()=>{
+  $('#gate').style.display='none';$('#main').style.display='block';window.scrollTo(0,0);
+  rain(CONF,80);watch();
+};
+function watch(){
+  const all=document.querySelectorAll('.rev');
+  if(!('IntersectionObserver' in window)){all.forEach(x=>x.classList.add('in'));return}
+  const o=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);if(e.target.id==='fin')rain(LOVE,25,3)}
+  }),{threshold:.15});
+  all.forEach(x=>o.observe(x));
+}
+
+/* Twist 1: security check */
+let tries=0;const no=$('#no');
+function dodge(){
+  if(tries>=4)return;tries++;
+  no.style.transform='translate('+(Math.random()*160-80)+'px,'+(Math.random()*70-35)+'px)';
+  if(tries>=4){no.style.transform='none';no.textContent='Fine… I am Ayat 😅'}
+}
+no.addEventListener('pointerenter',dodge);
+no.addEventListener('pointerdown',e=>{if(tries<4)e.preventDefault();dodge()});
+function verify(){$('#vmsg').innerHTML='✅ Identity verified: 100% Ayat.<br>Welcome, Birthday Star! The cake agrees.';rain(CONF,40)}
+$('#yes').onclick=verify;
+no.onclick=()=>{if(tries>=4)verify()};
+
+/* Twist 2: exam where every answer is correct */
+const Q=[
+['What is Ayat’s greatest talent?',['Making everyone smile 😊','Being super smart 🧠','Finishing the cake first 🍰'],'Correct! (All answers are correct on birthdays. It’s the law.)'],
+['What does the birthday star need most today?',['Cake 🍰','More cake 🍰🍰','A second slice of cake'],'Wise choice. The cake committee is very proud.'],
+['Who deserves a standing ovation today?',['Ayat 👏','Ayat 👏👏','Ayat (and also the cake)'],'Perfect! The judges were bribed with cake.']
+];
+let qi=0;const qb=$('#quiz');
+function showQ(){
+  if(qi>=Q.length){qb.innerHTML='<h3>🏆 Final score: 100/100</h3><p>Ayat passes with extra sparkles. Certificate printed in invisible ink.</p>';rain(CONF,50);return}
+  const q=Q[qi];
+  qb.innerHTML='<p class="soft">Question '+(qi+1)+' of '+Q.length+'</p><h3>'+q[0]+'</h3>'+q[1].map(o=>'<button class="btn alt">'+o+'</button>').join('')+'<p id="qr" style="font-weight:700"></p>';
+  qb.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    $('#qr').textContent='✅ '+q[2];
+    qb.querySelectorAll('button').forEach(x=>x.disabled=true);
+    const n=document.createElement('button');n.className='btn';n.textContent=qi===Q.length-1?'See my score 🏆':'Next →';
+    n.onclick=()=>{qi++;showQ()};qb.appendChild(n);
+  });
+}
+showQ();
+
+/* Twist 3: gift boxes */
+const G=['🎟️ Coupon: One free wish! Terms: must be kind, and nothing too crazy.','🎟️ Coupon: Unlimited smiles today. Side effect: laughing for no reason.','📦 Gift: Nothing! …Just kidding. The real gift is having Ayat in our lives. (Cake is the second gift.)'];
+G.forEach((t,i)=>{
+  const b=document.createElement('button');b.className='gb';b.textContent='🎁';b.setAttribute('aria-label','Gift '+(i+1));
+  b.onclick=()=>{b.textContent=['🎟️','😄','💖'][i];b.style.animation='none';$('#gmsg').textContent=t;rain(CONF,20)};
+  $('#gifts').appendChild(b);
+});
+
+/* Twist 4: trick candle */
+let lit=[1,1,1,1,1],tricked=false;
+function drawC(){
+  $('#candles').innerHTML=lit.map((l,i)=>'<button class="cn" data-i="'+i+'" aria-label="Candle '+(i+1)+'"><i class="fl" style="visibility:'+(l?'visible':'hidden')+'">🔥</i><b></b></button>').join('');
+  document.querySelectorAll('.cn').forEach(c=>c.onclick=()=>{
+    const i=+c.dataset.i;if(!lit[i])return;lit[i]=0;drawC();
+    if(lit.every(x=>!x)){
+      if(!tricked){
+        tricked=true;$('#cmsg').textContent='Wow, all out! Wait…';
+        setTimeout(()=>{lit[2]=1;drawC();$('#cmsg').textContent='😂 Trick candle! Blow it once more!'},1000);
+      }else{$('#cmsg').textContent='🎉 Now make a wish, Ayat… and don’t tell anyone!';rain(CONF,60)}
+    }
+  });
+}
+drawC();
+
+/* Photos (saved in this browser on this device) */
+let photos=[];
+try{photos=JSON.parse(localStorage.getItem('ayat-photos')||'[]')}catch(e){photos=[]}
+function save(){try{localStorage.setItem('ayat-photos',JSON.stringify(photos));return true}catch(e){return false}}
+function shrink(f){
+  return new Promise(res=>{
+    const r=new FileReader();
+    r.onload=()=>{const im=new Image();
+      im.onload=()=>{const s=Math.min(1,900/Math.max(im.width,im.height)),c=document.createElement('canvas');
+        c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.75))};
+      im.onerror=()=>res(null);im.src=r.result};
+    r.onerror=()=>res(null);r.readAsDataURL(f);
+  });
+}
+function view(p){$('#lbi').src=p;$('#lb').style.display='flex'}
+$('#lb').onclick=()=>{$('#lb').style.display='none'};
+function draw(){
+  const g=$('#grid');g.innerHTML='';
+  photos.forEach((p,i)=>{
+    const d=document.createElement('div');d.className='ph';d.style.backgroundImage='url("'+p+'")';
+    d.onclick=()=>view(p);
+    const x=document.createElement('button');x.className='x';x.textContent='✕';x.setAttribute('aria-label','Remove photo');
+    x.onclick=e=>{e.stopPropagation();photos.splice(i,1);save();draw();$('#note').textContent='Photo removed.'};
+    d.appendChild(x);g.appendChild(d);
+  });
+  $('#empty').style.display=photos.length?'none':'block';
+  const h=$('#hp');
+  if(photos[0]){h.style.backgroundImage='url("'+photos[0]+'")';h.innerHTML=''}
+  else{h.style.backgroundImage='none';h.innerHTML='🎂<small>Tap to add Ayat’s photo</small>'}
+}
+$('#hp').onclick=()=>photos[0]?view(photos[0]):$('#fi').click();
+$('#add').onclick=()=>$('#fi').click();
+$('#fi').onchange=async e=>{
+  const note=$('#note');note.textContent='Adding…';let ok=true;
+  for(const f of e.target.files){
+    const d=await shrink(f);if(!d)continue;
+    photos.push(d);
+    if(!save()){photos.pop();note.textContent='This device’s storage is full. Remove a few photos first.';ok=false;break}
+  }
+  draw();if(ok)note.textContent='Added! 💖 Photos stay saved on this device.';
+  e.target.value='';
+};
+draw();
+
+/* Letter editing */
+const msg=$('#msg');
+try{const s=localStorage.getItem('ayat-msg');if(s)msg.textContent=s}catch(e){}
+$('#edit').onclick=()=>{
+  const on=msg.isContentEditable;
+  if(on){msg.contentEditable='false';$('#edit').textContent='✏️ Edit message';try{localStorage.setItem('ayat-msg',msg.innerText)}catch(e){}}
+  else{msg.contentEditable='true';$('#edit').textContent='💾 Save message';msg.focus()}
+};
+
+/* Finale */
+$('#garden').innerHTML=['🌷','🌸','🌹','🌻','🌼','🌺','🌷','🌸','🌹','🌻'].map(f=>'<span>'+f+'</span>').join('');
+$('#dont').onclick=()=>{$('#dont').style.display='none';$('#fmsg').hidden=false;bloom()};
+$('#again').onclick=bloom;
+</script>
+</body>
+</html>
